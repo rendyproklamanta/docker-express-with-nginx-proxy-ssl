@@ -1,0 +1,24 @@
+version: '3.6'
+
+services:
+  mydocker-api:
+    container_name: mydocker-api
+    image: mydocker/api
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - VIRTUAL_HOST=mydomain.com
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=mydomain.com
+      - LETSCRYPT_EMAIL=webmaster@mydomain.com
+      - HTTPS_METHOD=redirect
+      - NODE_ENV=production
+    expose:
+      - 80
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
