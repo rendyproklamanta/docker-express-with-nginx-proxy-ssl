@@ -12,7 +12,7 @@ services:
       - VIRTUAL_HOST=mydomain.com
       - VIRTUAL_PORT=3000
       - LETSENCRYPT_HOST=mydomain.com
-      - LETSCRYPT_EMAIL=webmaster@mydomain.com
+      - LETSENCRYPT_EMAIL=webmaster@mydomain.com
       - HTTPS_METHOD=redirect
       - NODE_ENV=production
     expose:
