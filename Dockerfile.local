@@ -9,7 +9,7 @@ ENV PATH $SRCDIR/app/node_modules/.bin:$PATH
 WORKDIR $SRCDIR/app
 COPY ./package.json .
 
-RUN yarn --verbose
+RUN yarn cache clean && yarn --verbose
 
 COPY . .
 

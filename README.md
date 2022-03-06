@@ -11,6 +11,10 @@ Simple CRUD example with NodeJS, Sequelize, Swagger and MySQL
 - Swagger UI v3.20.1
 - MySQL
 
+## Requirement Development:
+
+- [GitBash](https://git-scm.com) to run shell script
+
 ## Objective
 
 The objective of this guide is to make a [NodeJS Express](https://expressjs.com/pt-br/) web API connecting with a [MySQL](https://dev.mysql.com/downloads/installer/) database by using the [Sequelize ORM](https://sequelize.org/) (Object-relational mapping). The [Swagger UI](https://swagger.io/tools/swagger-ui/) will be used to test the API.
@@ -21,10 +25,21 @@ The objective of this guide is to make a [NodeJS Express](https://expressjs.com/
 
 <br>
 
-## To run this project in docker (Development only)
+# To run this project in docker (Development only)
 
 <br>
 
+## Run via Shell Script (Recommended)
+1. Open new terminal in Vs Code and set to **Git Bash**
+2. Run script :
+```
+cd deploy
+./local.sh
+```
+
+<br>
+
+## Run through CLI
 - First drop all images < none >
 ```
     docker image prune --filter="dangling=true"

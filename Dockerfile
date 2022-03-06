@@ -15,7 +15,7 @@ ENV EXPRESS_BASE_URL=https://api.dev.domain.com/
 WORKDIR $SRCDIR/app
 COPY ./package.json .
 
-RUN yarn --verbose
+RUN yarn cache clean && yarn --verbose
 
 COPY . .
 
