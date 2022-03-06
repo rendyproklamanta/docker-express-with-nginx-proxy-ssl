@@ -5,15 +5,17 @@
 		"database": "crud",
 		"host": "localhost",
 		"dialect": "mysql",
-		"timezone": "America/Belem"
+		"timezone": "Asia/Jakarta",
+		"operatorsAliases": false
 	},
-	"test": {
+	"local": {
 		"username": "root",
 		"password": "<YOUR-PASSWORD>",
 		"database": "crud",
-		"host": "localhost",
+		"host": "host.docker.internal",
 		"dialect": "mysql",
-		"timezone": "America/Belem"
+		"timezone": "Asia/Jakarta",
+		"operatorsAliases": false
 	},
 	"production": {
 		"username": "root",
@@ -21,6 +23,7 @@
 		"database": "crud",
 		"host": "localhost",
 		"dialect": "mysql",
-		"timezone": "America/Belem"
+		"timezone": "Asia/Jakarta",
+		"operatorsAliases": false
 	}
 }

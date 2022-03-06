@@ -2,22 +2,22 @@ version: '3.6'
 
 services:
   api:
-    container_name: mydocker-api-dev
-    image: mydocker/api-dev
+    container_name: mydocker-api
+    image: mydocker/api
     restart: always
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
     environment:
-      - VIRTUAL_HOST=api.dev.domain.com
+      - VIRTUAL_HOST=api.domain.com
       - VIRTUAL_PORT=3000
-      - LETSENCRYPT_HOST=api.dev.domain.com
+      - LETSENCRYPT_HOST=api.domain.com
       - LETSENCRYPT_EMAIL=webmaster@domain.com
       - HTTPS_METHOD=redirect
     expose:
       - 80
     env_file:
-      - .env
+      - .env.production
 
 networks:
   default:

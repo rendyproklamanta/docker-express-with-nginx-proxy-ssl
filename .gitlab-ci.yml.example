@@ -12,6 +12,11 @@ deploy_staging:
   environment:
     name: staging
   script:
-    - ssh $SSH_USER@$VM_IPADDRESS "cd /home/web.com && chmod -x deploy.sh && git pull origin main && chmod +x deploy.sh && ./deploy.sh"
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "main" ]]; then
+        ssh $SSH_USER@$VM_IPADDRESS "cd /home/domain.com && chmod -x deploy-production.sh && git pull origin main && chmod +x deploy-production.sh && ./deploy-production.sh"
+      else
+        ssh $SSH_USER_DEV@$VM_IPADDRESS_DEV "cd /home/domain.com/dev && chmod -x deploy-development.sh && git pull origin main && chmod +x deploy-development.sh && ./deploy-development.sh"
+      fi
   only:
-    - main
+    - main # Add this to Execute CI/CD pipeline from branch "main" only if we use DO App Engine as "dev" server

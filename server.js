@@ -4,6 +4,7 @@ const app = express();
 var argv = require('minimist')(process.argv.slice(2));
 var cors = require('cors');
 var mysql = require('mysql2');
+var env = process.env.NODE_ENV;
 
 // CONTROLLERS
 var usersCtrl = require('./controllers/users');
@@ -79,7 +80,7 @@ app.get('/', function (req, res) {
 });
 
 app.get("/api", (req, res) => {
-	res.json("Welcome to Express Application");
+	res.json("Welcome to Express Application. Node Environment : " + env);
 });
 
 app.use('/api/v1/users', usersCtrl);

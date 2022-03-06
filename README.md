@@ -32,12 +32,12 @@ The objective of this guide is to make a [NodeJS Express](https://expressjs.com/
 
 - Without Daemon (show logs in VScode terminal):
 ```
-    docker-compose -f docker-compose.dev.yml up --build
+    docker-compose -f docker-compose.local.yml up --build
 ```
 
 - With Daemon (show logs in docker desktop):
 ```
-    docker-compose -f docker-compose.dev.yml up --build -d
+    docker-compose -f docker-compose.local.yml up --build -d
 ```
 
 - Acess the URL:
