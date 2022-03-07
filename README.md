@@ -1,6 +1,4 @@
-![Alt Text](/docs/titulo.JPG)
-
-# CRUD-NodeJS-Sequelize-Swagger-MySQL
+# CRUD-NodeJS-Sequelize-Swagger-MySQL-Dockerize
 
 Simple CRUD example with NodeJS, Sequelize, Swagger and MySQL
 
@@ -30,7 +28,7 @@ The objective of this guide is to make a [NodeJS Express](https://expressjs.com/
 <br>
 
 ## Run via Shell Script (Recommended)
-1. Open new terminal in Vs Code and set to **Git Bash**
+1. Open new terminal in VsCode [**Ctrl + `**] and set to **Git Bash**
 2. Run script :
 ```
 cd deploy
@@ -47,12 +45,12 @@ cd deploy
 
 - Without Daemon (show logs in VScode terminal):
 ```
-    docker-compose -f docker-compose.local.yml up --build
+    docker-compose -f docker-compose.local.yml up --build --force-recreate
 ```
 
 - With Daemon (show logs in docker desktop):
 ```
-    docker-compose -f docker-compose.local.yml up --build -d
+    docker-compose -f docker-compose.local.yml up --build --force-recreate -d
 ```
 
 - Acess the URL:

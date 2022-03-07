@@ -8,12 +8,6 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    environment:
-      - VIRTUAL_HOST=api.dev.domain.com
-      - VIRTUAL_PORT=3000
-      - LETSENCRYPT_HOST=api.dev.domain.com
-      - LETSENCRYPT_EMAIL=webmaster@domain.com
-      - HTTPS_METHOD=redirect
     expose:
       - 80
     env_file:

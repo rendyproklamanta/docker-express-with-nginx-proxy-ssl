@@ -6,17 +6,21 @@ before_script:
   - ssh-add <(echo "$SSH_PRIVATE_KEY")
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-
-deploy_staging:
+  
+deploy_development:
   stage: deploy
   environment:
-    name: staging
+    name: development
   script:
-    - |
-      if [[ "$CI_COMMIT_BRANCH" == "main" ]]; then
-        ssh $SSH_USER@$VM_IPADDRESS "cd /home/domain.com && git pull origin main && cd /home/domain.com/deploy && chmod +x production.sh && ./production.sh && chmod -x production.sh"
-      else
-        ssh $SSH_USER_DEV@$VM_IPADDRESS_DEV "cd /home/domain.com/dev && git pull origin dev && cd /home/domain.com/dev/deploy && chmod +x development.sh && ./development.sh  && chmod -x development.sh"
-      fi
+    - ssh $SSH_USER@$VM_IPADDRESS "cd /home/dev.domain.com && git switch dev && git pull origin dev && cd /home/dev.domain.com/deploy && chmod +x development.sh && ./development.sh && chmod -x development.sh"
   only:
-    - main # Add this to Execute CI/CD pipeline from branch "main" only if we use DO App Engine as "dev" server
+    - dev # branch name
+
+deploy_production:
+  stage: deploy
+  environment:
+    name: production
+  script:
+    - ssh $SSH_USER@$VM_IPADDRESS "cd /home/domain.com && git switch main && git pull origin main && cd /home/domain.com/deploy && chmod +x production.sh && ./production.sh && chmod -x production.sh"
+  only:
+    - main # branch name
