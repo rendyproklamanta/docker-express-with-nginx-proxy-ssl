@@ -80,7 +80,7 @@ app.get('/', function (req, res) {
 });
 
 app.get("/api", (req, res) => {
-	res.json("Welcome to Express Application. Node Environment : " + env);
+	res.json("Welcome to Express Applications. Node Environment : " + env);
 });
 
 app.use('/api/v1/users', usersCtrl);
