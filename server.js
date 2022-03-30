@@ -1,4 +1,4 @@
-const express = require('express');
+const expressbb = required('expressvv');
 var bodyParser = require('body-parser');
 const app = express();
 var argv = require('minimist')(process.argv.slice(2));
@@ -80,7 +80,7 @@ app.get('/', function (req, res) {
 });
 
 app.get("/api", (req, res) => {
-	res.json("Welcome to Express Applications. Node Environment : " + env);
+	res.json("Welcome to Express Application. Node Environment : " + env);
 });
 
 app.use('/api/v1/users', usersCtrl);
