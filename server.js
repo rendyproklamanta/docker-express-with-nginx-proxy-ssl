@@ -1,4 +1,4 @@
-const expressbb = required('expressvv');
+const express = require('express');
 var bodyParser = require('body-parser');
 const app = express();
 var argv = require('minimist')(process.argv.slice(2));
